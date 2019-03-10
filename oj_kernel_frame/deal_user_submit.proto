@@ -1,0 +1,37 @@
+syntax = "proto3";
+package deal_user_submit;
+
+//接收用户的提交
+//两种方案
+//1、网站后端接收到用户点击提交后，就应向服务端发起通知服务端准备接收该提交请求
+//在接收到该请求后，服务端起协程去进行下一步判题操作，最后的结果返回给网站后端
+
+//TODO
+//2、网站后端采用Websocket，用户点击提交后，向服务端send，服务端也采用websocket将该req放入Kafka中自己生产自己消费，起一定
+//数量协程去做判题，这时网站后端就完全异步了，判题协程判完后通过websocket.send解可以结束了
+
+message DealUserSubmitRequest {
+    int32 submit_id = 1;
+    string user_id = 2;
+}
+
+//TODO 拓展Res
+enum Res {
+    AC = 0;
+    EA = 1;
+    CE = 2;
+    TL = 3;
+    ML = 4;
+}
+
+message DealUserSubmitResponse {
+    Res result = 1;
+    float time = 2;
+    float memory = 3;
+    int32 statusCode = 4;
+    string statusMessage = 5;
+}
+
+service UserSubmit {
+    rpc DealUserSubmit(DealUserSubmitRequest) returns (DealUserSubmitResponse) {}
+}
