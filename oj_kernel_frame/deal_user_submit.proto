@@ -11,8 +11,8 @@ package deal_user_submit;
 //数量协程去做判题，这时网站后端就完全异步了，判题协程判完后通过websocket.send解可以结束了
 
 message DealUserSubmitRequest {
-    int32 submit_id = 1;
-    string user_id = 2;
+    int64 submit_id = 1;
+    int64 user_id = 2;
 }
 
 //TODO 拓展Res
