@@ -1,6 +1,6 @@
 syntax = "proto3";
-package deal_user_submit;
-
+package pb_gen;
+import "common.proto";
 //接收用户的提交
 //两种方案
 //1、网站后端接收到用户点击提交后，就应向服务端发起通知服务端准备接收该提交请求
@@ -15,17 +15,8 @@ message DealUserSubmitRequest {
     int32 user_id = 2;
 }
 
-//TODO 拓展Res
-enum Res {
-    AC = 0;
-    EA = 1;
-    CE = 2;
-    TL = 3;
-    ML = 4;
-}
-
 message DealUserSubmitResponse {
-    Res result = 1;
+    common.Res result = 1;
     float time = 2;
     float memory = 3;
     int32 statusCode = 4;

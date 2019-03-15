@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "common.proto";
+package pb_gen;
+
+message JudgeSubmitRequest {
+    int32 submit_id = 1;
+}
+
+message JudgeSubmitResponse {
+    pb_gen.Res res = 1;
+    float time = 2;
+    float memory = 3;
+    int32 statusCode = 4;
+    int32 statusMessage = 5;
+}
+
+service Judge {
+    rpc JudgeSubmit(JudgeSubmitRequest) returns (JudgeSubmitResponse) {}
+}

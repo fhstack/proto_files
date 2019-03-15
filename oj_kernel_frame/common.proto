@@ -1,0 +1,12 @@
+syntax = "proto3";
+package pb_gen;
+
+//TODO 拓展Res
+enum Res {
+    AC = 0;
+    EA = 1;
+    CE = 2;
+    TL = 3;
+    ML = 4;
+}
+
