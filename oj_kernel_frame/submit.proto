@@ -16,7 +16,7 @@ message DealUserSubmitRequest {
 }
 
 message DealUserSubmitResponse {
-    common.Res result = 1;
+    pb_gen.Res result = 1;
     float time = 2;
     float memory = 3;
     int32 statusCode = 4;
