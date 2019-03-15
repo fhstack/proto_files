@@ -11,7 +11,7 @@ message JudgeSubmitResponse {
     float time = 2;
     float memory = 3;
     int32 statusCode = 4;
-    int32 statusMessage = 5;
+    string statusMessage = 5;
 }
 
 service Judge {
