@@ -8,5 +8,6 @@ enum Res {
     CE = 2;
     TL = 3;
     ML = 4;
+    SE = 5;
 }
 
